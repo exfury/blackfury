@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY="mykey"
-CHAINID="blackfury_9000-1"
+CHAINID="highbury_710-1"
 MONIKER="mymoniker"
 DATA_DIR=$(mktemp -d -t blackfury-datadir.XXXXX)
 
@@ -11,7 +11,7 @@ echo "init blackfury with moniker=$MONIKER and chain-id=$CHAINID"
 ./blackfuryd init $MONIKER --chain-id $CHAINID --home $DATA_DIR
 echo "prepare genesis: Allocate genesis accounts"
 ./blackfuryd add-genesis-account \
-"$(./blackfuryd keys show $KEY -a --home $DATA_DIR --keyring-backend test)" 1000000000000000000ablackfury,1000000000000000000stake \
+"$(./blackfuryd keys show $KEY -a --home $DATA_DIR --keyring-backend test)" 1000000000000000000afury,1000000000000000000stake \
 --home $DATA_DIR --keyring-backend test
 echo "prepare genesis: Sign genesis transaction"
 ./blackfuryd gentx $KEY 1000000000000000000stake --keyring-backend test --home $DATA_DIR --keyring-backend test --chain-id $CHAINID

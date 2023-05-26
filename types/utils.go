@@ -14,9 +14,9 @@ import (
 
 const (
 	// MainnetChainID defines the blackfury EIP155 chain ID for mainnet
-	MainnetChainID = "blackfury_9001"
+	MainnetChainID = "clockend_4200"
 	// TestnetChainID defines the blackfury EIP155 chain ID for testnet
-	TestnetChainID = "blackfury_9000"
+	TestnetChainID = "highbury_710"
 )
 
 // IsMainnet returns true if the chain-id has the blackfury mainnet EIP155 chain prefix.

@@ -1,14 +1,14 @@
 accounts:
   - name: alice
-    coins: ["100000000uatom", "100000000000000000000ablackfury"]
+    coins: ["100000000uatom", "100000000000000000000afury"]
   - name: bob
-    coins: ["5000000000000ablackfury"]
+    coins: ["5000000000000afury"]
 validator:
   name: alice
-  staked: "100000000000000000000ablackfury"
+  staked: "100000000000000000000afury"
 faucet:
   name: bob 
-  coins: ["10ablackfury"]
+  coins: ["10afury"]
 build:
   binary: "blackfuryd"
 init:

@@ -7,7 +7,7 @@
 -   Initialize blackfury node directory
 
 ```bash
-blackfuryd init <node_name> --chain-id blackfury_7700-1
+blackfuryd init <node_name> --chain-id highbury_710-1
 ```
 
 -   Download the [genesis file](https://github.com/Exfury/Blackfury/raw/genesis/Networks/Mainnet/genesis.json)
@@ -21,7 +21,7 @@ wget https://github.com/Exfury/Blackfury/raw/genesis/Networks/Mainnet/genesis.js
 A GENTX is a genesis transaction that adds a validator node to the genesis file.
 
 ```bash
-blackfuryd gentx <key_name> <token-amount>ablackfury --chain-id=blackfury_7700-1 --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
+blackfuryd gentx <key_name> <token-amount>ablackfury --chain-id=highbury_710-1 --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
 ```
 
 -   Fork [Blackfury](https://github.com/Exfury/Blackfury)

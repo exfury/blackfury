@@ -17,7 +17,7 @@ RPC_PORT="854"
 IP_ADDR="0.0.0.0"
 
 KEY="mykey"
-CHAINID="blackfury_9000-1"
+CHAINID="highbury_710-1"
 MONIKER="mymoniker"
 
 ## default port prefixes for blackfuryd
@@ -70,7 +70,7 @@ init_func() {
     "$PWD"/build/blackfuryd keys add $KEY"$i" --keyring-backend test --home "$DATA_DIR$i" --no-backup --algo "eth_secp256k1"
     "$PWD"/build/blackfuryd init $MONIKER --chain-id $CHAINID --home "$DATA_DIR$i"
     "$PWD"/build/blackfuryd add-genesis-account \
-    "$("$PWD"/build/blackfuryd keys show "$KEY$i" --keyring-backend test -a --home "$DATA_DIR$i")" 1000000000000000000ablackfury,1000000000000000000stake \
+    "$("$PWD"/build/blackfuryd keys show "$KEY$i" --keyring-backend test -a --home "$DATA_DIR$i")" 1000000000000000000afury,1000000000000000000stake \
     --keyring-backend test --home "$DATA_DIR$i"
     "$PWD"/build/blackfuryd gentx "$KEY$i" 1000000000000000000stake --chain-id $CHAINID --keyring-backend test --home "$DATA_DIR$i"
     "$PWD"/build/blackfuryd collect-gentxs --home "$DATA_DIR$i"
@@ -110,10 +110,10 @@ start_func() {
     --keyring-backend test --home "$DATA_DIR$i" \
     >"$DATA_DIR"/node"$i".log 2>&1 & disown
 
-    blackfury_PID=$!
-    echo "started blackfury node, pid=$blackfury_PID"
+    highbury_PID=$!
+    echo "started blackfury node, pid=$highbury_PID"
     # add PID to array
-    arr+=("$blackfury_PID")
+    arr+=("$highbury_PID")
 
     if [[ $MODE == "pending" ]]; then
       echo "waiting for the first block..."
@@ -156,12 +156,12 @@ if [[ -z $TEST || $TEST == "rpc" ||  $TEST == "pending" ]]; then
 fi
 
 stop_func() {
-    blackfury_PID=$i
-    echo "shutting down node, pid=$blackfury_PID ..."
+    highbury_PID=$i
+    echo "shutting down node, pid=$highbury_PID ..."
 
     # Shutdown blackfury node
-    kill -9 "$blackfury_PID"
-    wait "$blackfury_PID"
+    kill -9 "$highbury_PID"
+    wait "$highbury_PID"
 
     if [ $REMOVE_DATA_DIR == "true" ]
     then

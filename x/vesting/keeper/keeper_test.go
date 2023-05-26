@@ -119,7 +119,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 	// Set Context
 	suite.ctx = suite.app.BaseApp.NewContext(checkTx, tmproto.Header{
 		Height:          1,
-		ChainID:         "blackfury_9001-1",
+		ChainID:         "clockend_4200-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 

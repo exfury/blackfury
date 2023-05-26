@@ -122,7 +122,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 		// Initialize the chain
 		suite.app.InitChain(
 			abci.RequestInitChain{
-				ChainId:         "blackfury_9001-1",
+				ChainId:         "clockend_4200-1",
 				Validators:      []abci.ValidatorUpdate{},
 				ConsensusParams: app.DefaultConsensusParams,
 				AppStateBytes:   stateBytes,
@@ -132,7 +132,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 
 	suite.ctx = suite.app.BaseApp.NewContext(checkTx, tmproto.Header{
 		Height:          1,
-		ChainID:         "blackfury_9001-1",
+		ChainID:         "clockend_4200-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: suite.consAddress.Bytes(),
 

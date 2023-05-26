@@ -7,7 +7,7 @@ ARG KEY_NAME <add your keyname>
 ARG MONIKER <add your moniker>
 
 # add the network id
-ARG NETWORK_ID blackfury_9624-1
+ARG NETWORK_ID clockend_4200-1
 
 # arbitrary validator metadata
 ARG DETAILS <details as string>
@@ -35,7 +35,7 @@ RUN blackfuryd keys add $KEY_NAME
     # blackfuryd keys add $KEY_NAME --ledger 
 
 # initialize node
-RUN blackfuryd init $MONIKER --chain-id blackfury_9624-1
+RUN blackfuryd init $MONIKER --chain-id clockend_4200-1
 
 # get genesis file
 RUN wget https://github.com/Exfury/Blackfury-Testnet-v2/raw/main/genesis.json -P $HOME/.blackfuryd/config/

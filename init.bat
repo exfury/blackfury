@@ -9,7 +9,7 @@ rem 3. add path C:\msys64\mingw64\bin
 rem             C:\msys64\usr\bin
 
 set KEY="mykey"
-set CHAINID="blackfury_9000-1"
+set CHAINID="highbury_710-1"
 set MONIKER="localtestnet"
 set KEYRING="test"
 set KEYALGO="eth_secp256k1"
@@ -54,10 +54,10 @@ rem setup
 sed -i "s/create_empty_blocks = true/create_empty_blocks = false/g" %ETHCONFIG%
 
 rem Allocate genesis accounts (cosmos formatted addresses)
-blackfuryd add-genesis-account %KEY% 100000000000000000000000000ablackfury --keyring-backend %KEYRING%
+blackfuryd add-genesis-account %KEY% 100000000000000000000000000afury --keyring-backend %KEYRING%
 
 rem Sign genesis transaction
-blackfuryd gentx %KEY% 1000000000000000000000ablackfury --keyring-backend %KEYRING% --chain-id %CHAINID%
+blackfuryd gentx %KEY% 1000000000000000000000afury --keyring-backend %KEYRING% --chain-id %CHAINID%
 
 rem Collect genesis tx
 blackfuryd collect-gentxs

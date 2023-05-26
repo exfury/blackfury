@@ -1,6 +1,6 @@
 KEY="mykey"
 KEY2="mykey2"
-CHAINID="blackfury_7701-1"
+CHAINID="clockend_4200-1"
 MONIKER="plex-validator"
 KEYRING="test"
 KEYALGO="eth_secp256k1"
@@ -70,8 +70,8 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
-blackfuryd add-genesis-account $KEY 964723926400000000000000000ablackfury --keyring-backend $KEYRING
-blackfuryd add-genesis-account $KEY2 35276073600000000000000000ablackfury --keyring-backend $KEYRING
+blackfuryd add-genesis-account $KEY 964723926400000000000000000afury --keyring-backend $KEYRING
+blackfuryd add-genesis-account $KEY2 35276073600000000000000000afury --keyring-backend $KEYRING
                                  
 # Update total supply with claim values
 #validators_supply=$(cat $HOME/.blackfuryd/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
@@ -83,8 +83,8 @@ cat $HOME/.blackfuryd/config/genesis.json | jq -r --arg total_supply "$total_sup
 echo $KEYRING
 echo $KEY
 # Sign genesis transaction
-blackfuryd gentx $KEY2 100000000000000000000000ablackfury --keyring-backend $KEYRING --chain-id $CHAINID
-#blackfuryd gentx $KEY2 1000000000000000000000ablackfury --keyring-backend $KEYRING --chain-id $CHAINID
+blackfuryd gentx $KEY2 100000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID
+#blackfuryd gentx $KEY2 1000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID
 
 # Collect genesis tx
 blackfuryd collect-gentxs
@@ -97,5 +97,5 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-blackfuryd start --pruning=nothing --trace --log_level trace --minimum-gas-prices=1.000ablackfury --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable true --api.enabled-unsafe-cors true
+blackfuryd start --pruning=nothing --trace --log_level trace --minimum-gas-prices=1.000afury --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable true --api.enabled-unsafe-cors true
 

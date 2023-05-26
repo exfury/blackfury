@@ -2,7 +2,7 @@
 
 **How to validate on the Blackfury Mainnet**
 
-*(blackfury_7700-1)*
+*(highbury_710-1)*
 
 > Genesis file [Published](https://github.com/Exfury/Blackfury/raw/main/Mainnet/genesis.json)
 > Peers list [Published](https://github.com/Exfury/Blackfury/blob/main/Mainnet/peers.txt)
@@ -88,7 +88,7 @@ Install blackfuryd binary from `Blackfury` directory:
 
 Initialize the node. Replace `<moniker>` with whatever you'd like to name your validator.
 
-`blackfuryd init <moniker> --chain-id blackfury_7700-1`
+`blackfuryd init <moniker> --chain-id highbury_710-1`
 
 If this runs successfully, it should dump a blob of JSON to the terminal.
 
@@ -102,7 +102,7 @@ Download the Genesis file:
 
 Edit the minimum-gas-prices in `${HOME}/.blackfuryd/config/app.toml`:
 
-`sed -i 's/minimum-gas-prices = "0ablackfury"/minimum-gas-prices = "0.0001ablackfury"/g' $HOME/.blackfuryd/config/app.toml`
+`sed -i 's/minimum-gas-prices = "0afury"/minimum-gas-prices = "0.0001ablackfury"/g' $HOME/.blackfuryd/config/app.toml`
 
 Add persistent peers to `$HOME/.blackfuryd/config/config.toml`:
 `sed -i 's/persistent_peers = ""/persistent_peers = "ec770ae4fd0fb4871b9a7c09f61764a0b010b293@164.90.134.106:26656"/g' $HOME/.blackfuryd/config/config.toml`
@@ -168,7 +168,7 @@ Modify the following items below, removing the `<>`
 
 blackfuryd tx staking create-validator \
 --from <KEY_NAME> \
---chain-id blackfury_7700-1 \
+--chain-id highbury_710-1 \
 --moniker="<VALIDATOR_NAME>" \
 --commission-max-change-rate=0.01 \
 --commission-max-rate=1.0 \
@@ -179,6 +179,6 @@ blackfuryd tx staking create-validator \
 --pubkey $(blackfuryd tendermint show-validator) \
 --min-self-delegation="1" \
 --amount <TOKEN_DELEGATION>ablackfury \
---fees 20ablackfury
+--fees 20afury
 
 ```

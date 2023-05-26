@@ -1,5 +1,5 @@
 KEY="mykey"
-CHAINID="blackfury_9000-1"
+CHAINID="highbury_710-1"
 MONIKER="localtestnet"
 KEYRING="test"
 KEYALGO="eth_secp256k1"
@@ -84,7 +84,7 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
-blackfuryd add-genesis-account $KEY 100000000000000000000010000ablackfury --keyring-backend $KEYRING
+blackfuryd add-genesis-account $KEY 100000000000000000000010000afury --keyring-backend $KEYRING
 
 # Update total supply with claim values
 validators_supply=$(cat $HOME/.blackfuryd/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
@@ -94,7 +94,7 @@ total_supply=100000000000000000000010000
 cat $HOME/.blackfuryd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
 
 # Sign genesis transaction
-blackfuryd gentx $KEY 1000000000000000000000ablackfury --keyring-backend $KEYRING --chain-id $CHAINID
+blackfuryd gentx $KEY 1000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID
 
 # Collect genesis tx
 blackfuryd collect-gentxs
