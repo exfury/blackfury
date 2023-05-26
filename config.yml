@@ -1,0 +1,39 @@
+accounts:
+  - name: alice
+    coins: ["100000000uatom", "100000000000000000000ablackfury"]
+  - name: bob
+    coins: ["5000000000000ablackfury"]
+validator:
+  name: alice
+  staked: "100000000000000000000ablackfury"
+faucet:
+  name: bob 
+  coins: ["10ablackfury"]
+build:
+  binary: "blackfuryd"
+init:
+  home: "$HOME/.blackfuryd"
+  app:
+    evm-rpc:
+      address: "0.0.0.0:8545"     # change the JSON-RPC address and port
+      ws-address: "0.0.0.0:8546"  # change the JSON-RPC websocket address and port
+genesis:
+  chain_id: "blackfuryd_9000-1"
+  app_state:
+    staking:
+      params:
+        bond_denom: "ablackfury"
+    mint:
+      params:
+        mint_denom: "ablackfury"
+    crisis:
+      constant_fee:
+        denom: "ablackfury"
+    gov:
+      deposit_params:
+        min_deposit:
+          - amount: "10000000"
+            denom: "ablackfury"
+    evm:
+      params:
+        evm_denom: "ablackfury"
