@@ -22,18 +22,18 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "ablackfury"
+        bond_denom: "afury"
     mint:
       params:
-        mint_denom: "ablackfury"
+        mint_denom: "afury"
     crisis:
       constant_fee:
-        denom: "ablackfury"
+        denom: "afury"
     gov:
       deposit_params:
         min_deposit:
           - amount: "10000000"
-            denom: "ablackfury"
+            denom: "afury"
     evm:
       params:
-        evm_denom: "ablackfury"
+        evm_denom: "afury"

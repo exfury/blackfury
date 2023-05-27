@@ -59,14 +59,14 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"equal metadata",
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -77,14 +77,14 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -99,24 +99,24 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"different base field",
 			banktypes.Metadata{
-				Base: "ablackfury",
+				Base: "afury",
 			},
 			banktypes.Metadata{
-				Base: "tablackfury",
+				Base: "tafury",
 			},
 			true,
 		},
 		{
 			"different denom units length",
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -127,14 +127,14 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -145,14 +145,14 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"different denom units",
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -168,14 +168,14 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "ablackfury",
+				Base:        "afury",
 				Display:     "blackfury",
 				Name:        "blackfury",
 				Symbol:      "blackfury",
 				Description: "EVM, staking and governance denom of blackfury",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "ablackfury",
+						Denom:    "afury",
 						Exponent: 0,
 						Aliases:  []string{"atto blackfury"},
 					},
@@ -231,14 +231,14 @@ func TestEqualAliases(t *testing.T) {
 		},
 		{
 			"same values, unsorted",
-			[]string{"atto blackfury", "ablackfury"},
-			[]string{"ablackfury", "atto blackfury"},
+			[]string{"atto blackfury", "afury"},
+			[]string{"afury", "atto blackfury"},
 			false,
 		},
 		{
 			"same values, sorted",
-			[]string{"ablackfury", "atto blackfury"},
-			[]string{"ablackfury", "atto blackfury"},
+			[]string{"afury", "atto blackfury"},
+			[]string{"afury", "atto blackfury"},
 			true,
 		},
 	}

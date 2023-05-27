@@ -17,12 +17,12 @@ wget https://github.com/Exfury/Blackfury/raw/main/Mainnet/genesis.json -b $HOME/
 A genesis account is required to create a GENTX
 
 ```bash
-blackfuryd add-genesis-account <address-or-key-name> ablackfury --chain-id <chain-id>
+blackfuryd add-genesis-account <address-or-key-name> afury --chain-id <chain-id>
 ```
 ### Create & Submit a GENTX file + genesis.json
 A GENTX is a genesis transaction that adds a validator node to the genesis file.
 ```bash
-blackfuryd gentx <key_name> <token-amount>ablackfury --chain-id=<chain_id> --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
+blackfuryd gentx <key_name> <token-amount>afury --chain-id=<chain_id> --moniker=<your_moniker> --commission-max-change-rate=0.01 --commission-max-rate=0.10 --commission-rate=0.05 --details="<details here>" --security-contact="<email>" --website="<website>"
 ```
 * Fork [Blackfury](https://github.com/Exfury/Blackfury)
 

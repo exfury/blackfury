@@ -50,7 +50,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 	expAck := ibcmock.MockAcknowledgement
 
 	coins := sdk.NewCoins(
-		sdk.NewCoin("ablackfury", sdk.NewInt(1000)),
+		sdk.NewCoin("afury", sdk.NewInt(1000)),
 		sdk.NewCoin(ibcAtomDenom, sdk.NewInt(1000)),
 		sdk.NewCoin(ibcOsmoDenom, sdk.NewInt(1000)),
 		sdk.NewCoin(erc20Denom, sdk.NewInt(1000)),
@@ -358,14 +358,14 @@ func (suite *KeeperTestSuite) TestGetIBCDenomDestinationIdentifiers() {
 	}{
 		{
 			"invalid native denom",
-			"ablackfury",
+			"afury",
 			func() {},
 			true,
 			"", "",
 		},
 		{
 			"invalid IBC denom hash",
-			"ibc/ablackfury",
+			"ibc/afury",
 			func() {},
 			true,
 			"", "",
@@ -580,7 +580,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacketFailTransfer() {
 
 			// Fund receiver account with blackfury
 			coins := sdk.NewCoins(
-				sdk.NewCoin("ablackfury", sdk.NewInt(1000)),
+				sdk.NewCoin("afury", sdk.NewInt(1000)),
 				sdk.NewCoin(ibcAtomDenom, sdk.NewInt(1000)),
 			)
 			testutil.FundAccount(suite.app.BankKeeper, suite.ctx, secpAddr, coins)

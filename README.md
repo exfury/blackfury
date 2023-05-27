@@ -102,7 +102,7 @@ Download the Genesis file:
 
 Edit the minimum-gas-prices in `${HOME}/.blackfuryd/config/app.toml`:
 
-`sed -i 's/minimum-gas-prices = "0afury"/minimum-gas-prices = "0.0001ablackfury"/g' $HOME/.blackfuryd/config/app.toml`
+`sed -i 's/minimum-gas-prices = "0afury"/minimum-gas-prices = "0.0001afury"/g' $HOME/.blackfuryd/config/app.toml`
 
 Add persistent peers to `$HOME/.blackfuryd/config/config.toml`:
 `sed -i 's/persistent_peers = ""/persistent_peers = "ec770ae4fd0fb4871b9a7c09f61764a0b010b293@164.90.134.106:26656"/g' $HOME/.blackfuryd/config/config.toml`
@@ -162,7 +162,7 @@ Modify the following items below, removing the `<>`
 - `<DESCRIPTION>` is whatever you'd like in the description field for your node
 - `<SECURITY_CONTACT_EMAIL>` is the email you want to use in the event of a security incident
 - `<YOUR_WEBSITE>` the website you want associated with your node
-- `<TOKEN_DELEGATION>` is the amount of tokens staked by your node (`1ablackfury` should work here, but you'll also need to make sure your address contains tokens.)
+- `<TOKEN_DELEGATION>` is the amount of tokens staked by your node (`1afury` should work here, but you'll also need to make sure your address contains tokens.)
 
 ```bash
 
@@ -178,7 +178,7 @@ blackfuryd tx staking create-validator \
 --website="<YOUR_WEBSITE>" \
 --pubkey $(blackfuryd tendermint show-validator) \
 --min-self-delegation="1" \
---amount <TOKEN_DELEGATION>ablackfury \
+--amount <TOKEN_DELEGATION>afury \
 --fees 20afury
 
 ```

@@ -79,7 +79,7 @@ func (suite *KeeperTestSuite) SetupApp() {
 	require.NoError(t, err)
 
 	suite.address = common.BytesToAddress(priv.PubKey().Address().Bytes())
-	suite.denom = "ablackfury"
+	suite.denom = "afury"
 
 	// consensus key
 	privCons, err := ethsecp256k1.GenerateKey()

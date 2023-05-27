@@ -39,7 +39,7 @@ RUN blackfuryd init $MONIKER --chain-id clockend_4200-1
 
 # get genesis file
 RUN wget https://github.com/Exfury/Blackfury-Testnet-v2/raw/main/genesis.json -P $HOME/.blackfuryd/config/
-RUN sed -i 's/minimum-gas-prices = ""/minimum-gas-prices = "0.0001ablackfury"/g' $HOME/.blackfuryd/config/app.toml
+RUN sed -i 's/minimum-gas-prices = ""/minimum-gas-prices = "0.0001afury"/g' $HOME/.blackfuryd/config/app.toml
 RUN wget https://github.com/Exfury/Blackfury-Testnet-v2/raw/main/Docker/blackfuryd.service -P $HOME/systemd/system/
 
 # run blackfuryd

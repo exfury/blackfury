@@ -59,14 +59,14 @@ func (suite *IBCTestingSuite) SetupTest() {
 	suite.coordinator.CommitNBlocks(suite.IBCCosmosChain, 2)
 
 	// Mint coins locked on the blackfury account generated with secp.
-	coinblackfury := sdk.NewCoin("ablackfury", sdk.NewInt(10000))
+	coinblackfury := sdk.NewCoin("afury", sdk.NewInt(10000))
 	coins := sdk.NewCoins(coinblackfury)
 	err := suite.blackfuryChain.App.(*app.Blackfury).BankKeeper.MintCoins(suite.blackfuryChain.GetContext(), inflationtypes.ModuleName, coins)
 	suite.Require().NoError(err)
 	err = suite.blackfuryChain.App.(*app.Blackfury).BankKeeper.SendCoinsFromModuleToAccount(suite.blackfuryChain.GetContext(), inflationtypes.ModuleName, suite.IBCOsmosisChain.SenderAccount.GetAddress(), coins)
 	suite.Require().NoError(err)
 
-	// Mint coins on the osmosis side which we'll use to unlock our ablackfury
+	// Mint coins on the osmosis side which we'll use to unlock our afury
 	coinOsmo := sdk.NewCoin("uosmo", sdk.NewInt(10))
 	coins = sdk.NewCoins(coinOsmo)
 	err = suite.IBCOsmosisChain.GetSimApp().BankKeeper.MintCoins(suite.IBCOsmosisChain.GetContext(), minttypes.ModuleName, coins)
@@ -74,7 +74,7 @@ func (suite *IBCTestingSuite) SetupTest() {
 	err = suite.IBCOsmosisChain.GetSimApp().BankKeeper.SendCoinsFromModuleToAccount(suite.IBCOsmosisChain.GetContext(), minttypes.ModuleName, suite.IBCOsmosisChain.SenderAccount.GetAddress(), coins)
 	suite.Require().NoError(err)
 
-	// Mint coins on the cosmos side which we'll use to unlock our ablackfury
+	// Mint coins on the cosmos side which we'll use to unlock our afury
 	coinAtom := sdk.NewCoin("uatom", sdk.NewInt(10))
 	coins = sdk.NewCoins(coinAtom)
 	err = suite.IBCCosmosChain.GetSimApp().BankKeeper.MintCoins(suite.IBCCosmosChain.GetContext(), minttypes.ModuleName, coins)
@@ -113,11 +113,11 @@ var (
 	}
 	uatomIbcdenom = uatomDenomtrace.IBCDenom()
 
-	ablackfuryDenomtrace = transfertypes.DenomTrace{
+	afuryDenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0",
-		BaseDenom: "ablackfury",
+		BaseDenom: "afury",
 	}
-	ablackfuryIbcdenom = ablackfuryDenomtrace.IBCDenom()
+	afuryIbcdenom = afuryDenomtrace.IBCDenom()
 
 	uatomOsmoDenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0/transfer/channel-1",

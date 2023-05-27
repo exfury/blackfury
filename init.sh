@@ -25,12 +25,12 @@ blackfuryd keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 # Set moniker and chain-id for blackfury (Moniker can be anything, chain-id must be an integer)
 blackfuryd init $MONIKER --chain-id $CHAINID
 
-# Change parameter token denominations to ablackfury
-cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="ablackfury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
-cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="ablackfury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
-cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="ablackfury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
-cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="ablackfury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
-cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="ablackfury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+# Change parameter token denominations to afury
+cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="afury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="afury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="afury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="afury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+cat $HOME/.blackfuryd/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="afury"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
 
 # Set gas limit in genesis
 cat $HOME/.blackfuryd/config/genesis.json | jq '.consensus_params["block"]["max_gas"]="10000000"' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
@@ -50,7 +50,7 @@ cat $HOME/.blackfuryd/config/genesis.json | jq '.consensus_params["block"]["max_
 
 # # Claim module account:
 # # 0xA61808Fe40fEb8B3433778BBC2ecECCAA47c8c47 || black15cvq3ljql6utxseh0zau9m8ve2j8erz84vyscz
-# cat $HOME/.blackfuryd/config/genesis.json | jq -r --arg amount_to_claim "$amount_to_claim" '.app_state["bank"]["balances"] += [{"address":"black15cvq3ljql6utxseh0zau9m8ve2j8erz84vyscz","coins":[{"denom":"ablackfury", "amount":$amount_to_claim}]}]' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
+# cat $HOME/.blackfuryd/config/genesis.json | jq -r --arg amount_to_claim "$amount_to_claim" '.app_state["bank"]["balances"] += [{"address":"black15cvq3ljql6utxseh0zau9m8ve2j8erz84vyscz","coins":[{"denom":"afury", "amount":$amount_to_claim}]}]' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
 
 # disable produce empty block
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -107,4 +107,4 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-blackfuryd start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001ablackfury --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable
+blackfuryd start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001afury --json-rpc.api eth,txpool,personal,net,debug,web3 --rpc.laddr "tcp://0.0.0.0:26657" --api.enable

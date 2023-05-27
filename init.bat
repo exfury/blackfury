@@ -38,11 +38,11 @@ blackfuryd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
 rem Set moniker and chain-id for blackfury (Moniker can be anything, chain-id must be an integer)
 blackfuryd init %MONIKER% --chain-id %CHAINID% 
 
-rem Change parameter token denominations to ablackfury
-cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"ablackfury\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"ablackfury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"ablackfury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
-cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"ablackfury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+rem Change parameter token denominations to afury
+cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"afury\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"crisis\"][\"constant_fee\"][\"denom\"]=\"afury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"gov\"][\"deposit_params\"][\"min_deposit\"][0][\"denom\"]=\"afury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
+cat %GENESIS% | jq ".app_state[\"mint\"][\"params\"][\"mint_denom\"]=\"afury\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
 
 rem increase block time (?)
 cat %GENESIS% | jq ".consensus_params[\"block\"][\"time_iota_ms\"]=\"30000\"" > %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
@@ -68,4 +68,4 @@ blackfuryd validate-genesis
 
 
 rem Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-blackfuryd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001ablackfury
+blackfuryd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001afury

@@ -44,7 +44,7 @@ import (
 )
 
 const (
-	EnvPrefix = "blackfury"
+	EnvPrefix = "black"
 )
 
 // NewRootCmd creates a new root command for blackfuryd. It is called once in the
