@@ -1,7 +1,7 @@
-KEY="mykey"
-KEY2="mykey2"
+KEY="node0"
+KEY2="node1"
 CHAINID="clockend_4200-1"
-MONIKER="plex-validator"
+MONIKER="elysium-0"
 KEYRING="test"
 KEYALGO="eth_secp256k1"
 LOGLEVEL="info"
@@ -77,13 +77,13 @@ blackfuryd add-genesis-account $KEY2 35276073600000000000000000afury --keyring-b
 #validators_supply=$(cat $HOME/.blackfuryd/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
 # Bc is required to add this big numbers
 # total_supply=$(bc <<< "$amount_to_claim+$validators_supply")
-total_supply=1000000000000000000000000000
+total_supply=420000000000000000000000000
 cat $HOME/.blackfuryd/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.blackfuryd/config/tmp_genesis.json && mv $HOME/.blackfuryd/config/tmp_genesis.json $HOME/.blackfuryd/config/genesis.json
 
 echo $KEYRING
 echo $KEY
 # Sign genesis transaction
-blackfuryd gentx $KEY2 100000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID
+blackfuryd gentx $KEY2 10000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID --ip 35.215.175.250
 #blackfuryd gentx $KEY2 1000000000000000000000afury --keyring-backend $KEYRING --chain-id $CHAINID
 
 # Collect genesis tx
