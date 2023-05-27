@@ -24,7 +24,7 @@ import (
 )
 
 // ChainIDPrefix defines the default chain ID prefix for blackfury test chains
-var ChainIDPrefix = "highbury_710-"
+var ChainIDPrefix = "highbury_710-101"
 
 func init() {
 	ibcgotesting.ChainIDPrefix = ChainIDPrefix
